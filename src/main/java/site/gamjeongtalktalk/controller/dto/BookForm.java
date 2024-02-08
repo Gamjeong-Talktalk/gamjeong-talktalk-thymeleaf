@@ -1,4 +1,4 @@
-package site.gamjeongtalktalk.controller;
+package site.gamjeongtalktalk.controller.dto;
 
 import lombok.Getter;
 import lombok.Setter;

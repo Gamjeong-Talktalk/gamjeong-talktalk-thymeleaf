@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import site.gamjeongtalktalk.controller.dto.BookForm;
 import site.gamjeongtalktalk.domain.item.Book;
 import site.gamjeongtalktalk.domain.item.Item;
 import site.gamjeongtalktalk.service.ItemService;

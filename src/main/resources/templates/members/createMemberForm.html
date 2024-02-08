@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: header" />
+<head th:replace="fragments/header :: header"></head>
 <style>
     .fieldError {
         border-color: #bd2130;
@@ -9,7 +9,7 @@
 <body>
 
 <div class="container">
-    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <div th:replace="fragments/bodyHeader :: bodyHeader"></div>
 
     <form role="form" action="/members/new" th:object="${memberForm}" method="post">
         <div class="form-group">
@@ -21,21 +21,21 @@
 
         </div>
         <div class="form-group">
-            <label th:for="city">도시</label>
-            <input type="text" th:field="*{city}" class="form-control" placeholder="도시를 입력하세요">
+            <label th:for="address">주소 (ex: 백석동 백석로 101호)</label>
+            <input type="text" th:field="*{address}" class="form-control" placeholder="주소를 입력하세요">
         </div>
         <div class="form-group">
-            <label th:for="street">거리</label>
-            <input type="text" th:field="*{street}" class="form-control" placeholder="거리를 입력하세요">
+            <label th:for="birthday">생년월일 (ex: 501107)</label>
+            <input type="text" th:field="*{birthday}" class="form-control" placeholder="전화번호를 입력하세요">
         </div>
         <div class="form-group">
-            <label th:for="zipcode">우편번호</label>
-            <input type="text" th:field="*{zipcode}" class="form-control" placeholder="우편번호를 입력하세요">
+            <label th:for="phoneNumber">전화번호 (ex: 010-1234-5678)</label>
+            <input type="text" th:field="*{phoneNumber}" class="form-control" placeholder="전화번호를 입력하세요">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">가입</button>
     </form>
     <br/>
-    <div th:replace="fragments/footer :: footer" />
+    <div th:replace="fragments/footer :: footer"></div>
 </div> <!-- /container -->
 
 </body>

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import site.gamjeongtalktalk.domain.Member;
 import site.gamjeongtalktalk.domain.Order;
 import site.gamjeongtalktalk.domain.item.Item;
+import site.gamjeongtalktalk.repository.MemberRepository;
 import site.gamjeongtalktalk.repository.OrderSearch;
 import site.gamjeongtalktalk.service.ItemService;
 import site.gamjeongtalktalk.service.MemberService;
@@ -20,12 +21,13 @@ public class OrderController {
 
     private final OrderService orderService;
     private final MemberService memberService;
+    private final MemberRepository memberRepository;
     private final ItemService itemService;
 
     @GetMapping("/order")
     public String createForm(Model model) {
 
-        List<Member> members = memberService.findMembers();
+        List<Member> members = memberRepository.findAll();
         List<Item> items = itemService.findItems();
 
         model.addAttribute("members", members);

@@ -9,7 +9,7 @@ import site.gamjeongtalktalk.repository.ItemRepository;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 @RequiredArgsConstructor
 public class ItemService {
 

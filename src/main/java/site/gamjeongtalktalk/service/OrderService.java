@@ -14,7 +14,7 @@ import site.gamjeongtalktalk.repository.OrderSearch;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 @RequiredArgsConstructor
 public class OrderService {
 
@@ -29,12 +29,11 @@ public class OrderService {
     public Long order(Long memberId, Long itemId, int count) {
 
         //엔티티 조회
-        Member member = memberRepository.findOne(memberId);
+        Member member = memberRepository.findById(memberId).get();
         Item item = itemRepository.findOne(itemId);
 
         //배송정보 생성
         Delivery delivery = new Delivery();
-        delivery.setAddress(member.getAddress());
         delivery.setStatus(DeliveryStatus.READY);
 
         //주문상품 생성

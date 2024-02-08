@@ -3,43 +3,25 @@ package site.gamjeongtalktalk.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import site.gamjeongtalktalk.controller.dto.MemberForm;
 import site.gamjeongtalktalk.domain.Member;
 import site.gamjeongtalktalk.repository.MemberRepository;
 
-import java.util.List;
-
 @Service
-@Transactional(readOnly = true)
+@Transactional
 @RequiredArgsConstructor
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    /**
-     * 회원 가입
-     */
-    @Transactional
-    public Long join(Member member) {
+    public void saveMember(MemberForm form) {
+        Member member = Member.createMember(
+                form.getName(),
+                form.getAddress(),
+                form.getBirthday(),
+                form.getPhoneNumber()
+        );
 
-        validateDuplicateMember(member); //중복 회원 검증
         memberRepository.save(member);
-        return member.getId();
     }
-
-    private void validateDuplicateMember(Member member) {
-        List<Member> findMembers = memberRepository.findByName(member.getName());
-        if (!findMembers.isEmpty()) {
-            throw new IllegalStateException("이미 존재하는 회원입니다.");
-        }
-    }
-
-    //회원 전체 조회
-    public List<Member> findMembers() {
-        return memberRepository.findAll();
-    }
-
-    public Member findOne(Long memberId) {
-        return memberRepository.findOne(memberId);
-    }
-
 }
