@@ -1,14 +1,9 @@
 package site.gamjeongtalktalk.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 import static java.util.UUID.randomUUID;
@@ -58,10 +53,6 @@ public class Member {
                 .phoneNumber(phoneNumber)
                 .build();
     }
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "member")
-    private List<Order> orders = new ArrayList<>();
 
     //== Business Method ==//
     private String generateInvitationCode() {
