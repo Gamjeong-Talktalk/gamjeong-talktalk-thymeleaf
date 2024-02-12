@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<body>
+
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>프로그램명</th>
+                <th>참가비</th>
+                <th>담당자</th>
+                <th>날짜</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="culture : ${cultures}">
+                <td th:text="${culture.id}"></td>
+                <td th:text="${culture.name}"></td>
+                <td th:text="${culture.price}"></td>
+                <td th:text="${culture.manager}"></td>
+                <td th:text="${culture.date}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"/>
+
+</div> <!-- /container -->
+
+</body>
+</html>
